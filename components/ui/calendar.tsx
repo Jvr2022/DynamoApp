@@ -1,24 +1,24 @@
 "use client";
-
 import React, { useState } from "react";
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/style.css";
+import { Calendar } from "./Calendar";
 
-export type CalendarProps = {
-  mode?: "single" | "multiple" | "range";
-  selected?: Date | undefined;
-};
-
-function Calendar({ mode = "single", selected }: CalendarProps) {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(selected);
+function ParentComponent() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
-    <DayPicker
-      mode={mode}
-      selected={selectedDate}
-      onSelect={setSelectedDate}
-    />
+    <div>
+      <Calendar
+        mode="single" // or "multiple" or "range"
+        selected={selectedDate}
+        onSelect={(date) => setSelectedDate(date)}
+      />
+      {selectedDate ? (
+        <p>Selected Date: {selectedDate.toLocaleDateString()}</p>
+      ) : (
+        <p>No date selected</p>
+      )}
+    </div>
   );
 }
 
-export { Calendar };
+export default ParentComponent;
