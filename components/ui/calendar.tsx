@@ -8,16 +8,19 @@ import { DayPicker } from "react-day-picker";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
+  selected?: Date | undefined;
+};
 
 function Calendar({
   className,
   classNames,
   showOutsideDays = true,
   mode = "single",
+  selected: selectedProp,
   ...props
 }: CalendarProps) {
-  const [selected, setSelected] = useState<Date | undefined>(props.selected);
+  const [selected, setSelected] = useState<Date | undefined>(selectedProp);
 
   return (
     <DayPicker
