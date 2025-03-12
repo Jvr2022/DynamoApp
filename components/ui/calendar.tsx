@@ -8,8 +8,14 @@ import { DayPicker } from "react-day-picker";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
+interface DateRange {
+  from?: Date;
+  to?: Date;
+}
+
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
-  selected?: Date | undefined;
+  mode?: "single" | "multiple" | "range";
+  selected?: Date | DateRange | undefined;
 };
 
 function Calendar({
@@ -20,13 +26,27 @@ function Calendar({
   selected: selectedProp,
   ...props
 }: CalendarProps) {
-  const [selected, setSelected] = useState<Date | undefined>(selectedProp);
+  const [selected, setSelected] = useState<Date | DateRange | undefined>(selectedProp);
+
+  const handleSelect = (date: Date | undefined) => {
+    if (mode === "range") {
+      setSelected((prevValue: DateRange | Date | undefined) => {
+        if (!date) return { from: undefined, to: undefined };
+        if (!(prevValue && typeof prevValue === 'object' && 'from' in prevValue)) {
+          return { from: date, to: undefined };
+        }
+        return { from: prevValue.from, to: date };
+      });
+    } else {
+      setSelected(date);
+    }
+  };
 
   return (
     <DayPicker
       mode={mode}
       selected={selected}
-      onSelect={setSelected}
+      onSelect={handleSelect}
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       classNames={{
@@ -67,6 +87,7 @@ function Calendar({
     />
   );
 }
+
 Calendar.displayName = "Calendar";
 
 export { Calendar };
