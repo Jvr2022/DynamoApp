@@ -16,7 +16,7 @@ export function TextAnimation() {
     }, typingSpeed)
 
     return () => clearTimeout(timer)
-  }, [text, isDeleting, loopNum])
+  }, [text, isDeleting, loopNum, typingSpeed])
 
   const handleType = () => {
     const i = loopNum % words.length

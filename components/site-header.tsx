@@ -1,6 +1,6 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export function SiteHeader() {
   return (
@@ -14,19 +14,33 @@ export function SiteHeader() {
             height={40}
             className="w-10 h-10"
           />
-          <span className="text-xl font-bold text-[#00AFF0] hidden sm:inline-block">Dynamo</span>
+          <span className="text-xl font-bold text-[#00AFF0] hidden sm:inline-block">
+            Dynamo
+          </span>
         </Link>
         <nav className="hidden md:flex gap-6">
-          <Link href="/#features" className="text-sm font-medium hover:text-[#00AFF0] transition-colors">
+          <Link
+            href="/#features"
+            className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+          >
             Features
           </Link>
-          <Link href="/#roadmap" className="text-sm font-medium hover:text-[#00AFF0] transition-colors">
+          <Link
+            href="/#roadmap"
+            className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+          >
             Roadmap
           </Link>
-          <Link href="/#faq" className="text-sm font-medium hover:text-[#00AFF0] transition-colors">
+          <Link
+            href="/#faq"
+            className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+          >
             FAQ
           </Link>
-          <Link href="/pricing" className="text-sm font-medium hover:text-[#00AFF0] transition-colors">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+          >
             Pricing
           </Link>
           <a
@@ -34,6 +48,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+            aria-label="Dynamo Reddit Community"
           >
             Reddit
           </a>
@@ -42,17 +57,23 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+            aria-label="Dynamo GitHub Repository"
           >
             GitHub
           </a>
         </nav>
         <div className="flex items-center gap-4">
-          <a href="https://github.com/dynamo-chat" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-[#00AFF0] hover:bg-[#0095d1] text-white">View on GitHub</Button>
+          <a
+            href="https://github.com/dynamo-chat"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-[#00AFF0] hover:bg-[#0095d1] text-white">
+              View on GitHub
+            </Button>
           </a>
         </div>
       </div>
     </header>
-  )
+  );
 }
-
