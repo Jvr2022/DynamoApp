@@ -1,48 +1,56 @@
-let userConfig = undefined
+/** @type {import('next').NextConfig} */
+let userConfig = undefined;
+
 try {
-  userConfig = await import('./userconfig-next.mjs')
+  userConfig = await import('./userconfig-next.mjs').then(m => m.default);
 } catch (e) {
-  // ignore error
+  console.error("Error importing ./userconfig-next.mjs.  Using default configuration.", e);
 }
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-}
+};
 
-mergeConfig(nextConfig, userConfig)
+const mergedConfig = mergeConfig(nextConfig, userConfig);
 
 function mergeConfig(nextConfig, userConfig) {
   if (!userConfig) {
-    return
+    return nextConfig;
   }
+
+  const merged = { ...nextConfig };
 
   for (const key in userConfig) {
     if (
       typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
+      !Array.isArray(nextConfig[key]) &&
+      nextConfig[key] !== null &&
+      userConfig[key] !== null
     ) {
-      nextConfig[key] = {
+      merged[key] = {
         ...nextConfig[key],
         ...userConfig[key],
-      }
+      };
     } else {
-      nextConfig[key] = userConfig[key]
+      merged[key] = userConfig[key];
     }
   }
+
+  return merged;
 }
 
-export default nextConfig
+export default mergedConfig;
