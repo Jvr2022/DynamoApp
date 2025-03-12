@@ -5,15 +5,14 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Dynamo - The Future of Communication",
   description:
-    "Project Dynamo is reimagining communication for the modern era, bringing back what you loved about Skype with enhanced features and security.",
-    generator: 'v0.dev'
+    "Project Dynamo is reimagining communication for the modern era, bringing back what you loved about Skype with enhanced features and security."
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en">
       <body>{children}</body>
