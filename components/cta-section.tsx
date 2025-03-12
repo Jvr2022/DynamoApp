@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export function CtaSection() {
   return (
@@ -19,13 +19,25 @@ export function CtaSection() {
             shape the future of Dynamo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-pulse">
-            <a href="https://www.reddit.com/r/dynamoapp" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.reddit.com/r/dynamoapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="lg" className="bg-white text-[#00AFF0] hover:bg-white/90">
                 Join r/dynamoapp
               </Button>
             </a>
-            <a href="https://github.com/dynamo-chat" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
+            <a
+              href="https://github.com/dynamo-chat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-transparent border-white text-white hover:bg-white/10"
+              >
                 Star on GitHub
               </Button>
             </a>
@@ -33,6 +45,5 @@ export function CtaSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
