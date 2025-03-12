@@ -56,10 +56,6 @@
 }
 
 @layer base {
-  * {
-    @apply border;
-    @apply border-[var(--border)];
-  }
   body {
     @apply bg-[var(--background)] text-[var(--foreground)];
   }
