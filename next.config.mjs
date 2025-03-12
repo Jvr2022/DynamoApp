@@ -1,6 +1,6 @@
 let userConfig = undefined
 try {
-  userConfig = await import('./v0-user-next.config')
+  userConfig = await import('./userconfig-next.mjs')
 } catch (e) {
   // ignore error
 }
