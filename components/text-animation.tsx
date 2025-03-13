@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react"
 
-export function TextAnimation() {
-  const [text, setText] = useState("Skype")
+export function TextAnimation({ loop = false }) {
+  const [text, setText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
   const [loopNum, setLoopNum] = useState(0)
   const [typingSpeed, setTypingSpeed] = useState(150)
-
   const words = ["Skype", "Dynamo"]
+  const pauseDuration = 2000
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,23 +24,24 @@ export function TextAnimation() {
 
     if (isDeleting) {
       setText(fullText.substring(0, text.length - 1))
-      setTypingSpeed(75) // faster when deleting
+      setTypingSpeed(75)
     } else {
       setText(fullText.substring(0, text.length + 1))
-      setTypingSpeed(150) // slower when typing
+      setTypingSpeed(150)
     }
 
     if (!isDeleting && text === fullText) {
-      // Only delete if we're on "Skype"
-      if (i === 0) {
-        setTimeout(() => setIsDeleting(true), 1000)
-      } else {
-        // If we're on "Dynamo", don't delete anymore
-        setTypingSpeed(9999999) // effectively stop the animation
-      }
+      setTimeout(() => setIsDeleting(true), pauseDuration)
     } else if (isDeleting && text === "") {
       setIsDeleting(false)
-      setLoopNum(loopNum + 1)
+      setLoopNum(loop ? (loopNum + 1) % words.length : loopNum + 1)
+
+      if (!loop && loopNum >= words.length) {
+        setTypingSpeed(9999999)
+      } else if (loop) {
+        setText("")
+        setIsDeleting(false)
+      }
     }
   }
 
@@ -51,4 +52,3 @@ export function TextAnimation() {
     </span>
   )
 }
-
