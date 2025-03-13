@@ -74,7 +74,7 @@ const config = {
         },
         "float-slow": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-5px)" },
+          "50%": { transform: "translateY(-3px)" },
         },
         "float-delay": {
           "0%, 100%": { transform: "translateY(0)" },
@@ -97,7 +97,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 6s ease-in-out infinite",
-        "float-slow": "float-slow 8s ease-in-out infinite",
+        "float-slow": "float-slow 12s ease-in-out infinite",
         "float-delay": "float-delay 8s ease-in-out infinite 1s",
         "fade-in": "fade-in 0.5s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out",
@@ -109,4 +109,3 @@ const config = {
 } satisfies Config
 
 export default config
-
