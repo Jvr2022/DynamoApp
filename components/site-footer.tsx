@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-white">
+    <footer className="border-t bg-white bg-gradient-to-r from-blue-100 to-blue-50">
       <div className="container flex flex-col gap-8 py-10 px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="space-y-4 max-w-sm">
@@ -88,7 +88,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-t pt-8">
           <p className="text-xs text-muted-foreground text-center md:text-left">
-            &copy; {new Date().getFullYear()} Project Dynamo. All rights reserved.
+            © {new Date().getFullYear()} Project Dynamo. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a
@@ -148,4 +148,3 @@ export function SiteFooter() {
     </footer>
   )
 }
-
