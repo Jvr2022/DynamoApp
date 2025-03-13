@@ -24,19 +24,17 @@ export function TextAnimation() {
 
     if (isDeleting) {
       setText(fullText.substring(0, text.length - 1))
-      setTypingSpeed(75) // faster when deleting
+      setTypingSpeed(75)
     } else {
       setText(fullText.substring(0, text.length + 1))
-      setTypingSpeed(150) // slower when typing
+      setTypingSpeed(150)
     }
 
     if (!isDeleting && text === fullText) {
-      // Only delete if we're on "Skype"
       if (i === 0) {
         setTimeout(() => setIsDeleting(true), 1000)
       } else {
-        // If we're on "Dynamo", don't delete anymore
-        setTypingSpeed(9999999) // effectively stop the animation
+        setTypingSpeed(9999999)
       }
     } else if (isDeleting && text === "") {
       setIsDeleting(false)
@@ -51,4 +49,3 @@ export function TextAnimation() {
     </span>
   )
 }
-
