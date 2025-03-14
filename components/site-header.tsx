@@ -43,6 +43,12 @@ export function SiteHeader() {
           >
             Pricing
           </Link>
+          <Link
+            href="/download"
+            className="text-sm font-medium hover:text-[#00AFF0] transition-colors"
+          >
+            Downloads
+          </Link>
           <a
             href="https://www.reddit.com/r/dynamoapp"
             target="_blank"
