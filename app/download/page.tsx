@@ -1,14 +1,7 @@
 import React from 'react';
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import {
-    FaAndroid,
-    FaWindows,
-    FaGlobe,
-    FaLinux,
-    FaApple,
-    FaMobileAlt,
-} from 'react-icons/fa';
+import { FaAndroid, FaWindows, FaGlobe, FaLinux, FaApple, FaMobileAlt, } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
