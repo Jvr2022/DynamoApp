@@ -7,24 +7,20 @@ import {
     FaGlobe,
     FaLinux,
     FaApple,
-    FaQuestion,
     FaMobileAlt,
-    FaDesktop
 } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const DownloadPage = () => {
-
     const platforms = [
         { name: "Android", icon: FaAndroid, description: "Download for Android mobile devices." },
         { name: "Windows", icon: FaWindows, description: "Download for Windows desktop." },
         { name: "Web", icon: FaGlobe, description: "Use Dynamo directly in your web browser." },
         { name: "Linux", icon: FaLinux, description: "Download for Linux operating systems." },
         { name: "macOS", icon: FaApple, description: "Download for macOS desktop." },
-        { name: "iOS", icon: FaMobileAlt, description: "Download for iOS mobile devices (iPhone, iPad)." }
-
+        { name: "iOS", icon: FaMobileAlt, description: "Download for iOS mobile devices (iPhone, iPad)." },
     ];
 
     const containerVariants = {
@@ -73,7 +69,7 @@ const DownloadPage = () => {
                                 variants={itemVariants}
                             >
                                 <div className="p-6 flex flex-col items-center">
-                                    <platform.icon className="h-14 w-14 text-[#00AFF0] mb-4" />
+                                    {React.createElement(platform.icon, { className: "h-14 w-14 text-[#00AFF0] mb-4" })}
                                     <h3 className="text-2xl font-semibold text-gray-800 mb-2">{platform.name}</h3>
                                     <p className="text-gray-500 text-center mb-4">{platform.description}</p>
                                     <Button
@@ -98,7 +94,7 @@ const DownloadPage = () => {
                     <div className="mt-8">
                         <Image
                             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Jouw%20alineatekst_20250306_230210_0000-mC7wtSLXwtKuvkpRGKUKjBbXns9xxC.png" 
-                            alt="Dynamo Illustration"
+                            alt="Illustration of Dynamo app in development"
                             width={200}
                             height={200}
                             className="rounded-full mx-auto shadow-md"
