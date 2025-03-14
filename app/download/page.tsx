@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FaAndroid, FaWindows, FaGlobe, FaLinux, FaApple, FaMobileAlt, } from 'react-icons/fa';
 import { Button } from "@/components/ui/button";
-import { motion } from 'framer-motion';
+import { motion } from "motion/react";
 import Image from 'next/image';
 
 const DownloadPage = () => {
